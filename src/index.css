@@ -67,7 +67,7 @@ body::-webkit-scrollbar {
    }
    .nav-model{
     .nav-button{
-      @apply block text-dark-brown  uppercase font-bold  md:text-9xl w-full;
+      @apply block text-dark-brown  uppercase font-bold  md:text-7xl lg:text-8xl  w-full;
     }
    }
   .hero-container {
