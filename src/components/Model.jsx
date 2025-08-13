@@ -1,10 +1,9 @@
-
 import React from "react";
 import gsap from "gsap";
 
 const COLORS = {
-  brown: "#523122",      // dark-brown (hovered/active)
-  muted: "#8B6F56",      // other buttons while one is hovered
+  brown: "#523122", // dark-brown (hovered/active)
+  muted: "#8B6F56", // other buttons while one is hovered
 };
 
 export default function Model() {
@@ -17,25 +16,22 @@ export default function Model() {
 
       // 1) Initial state: all btns dark-brown, first image visible
       gsap.set(buttons, { color: COLORS.brown });
-      gsap.set(images, { position: "absolute", inset: 0, opacity: 0, pointerEvents: "none" });
-      if (images[0]) gsap.set(images[0], { opacity: 1 });
-
-      // helper: quick opacity setters for each image (perf)
-      const imgSetters = new Map();
-      images.forEach((img) => {
-        imgSetters.set(img.dataset.key, gsap.quickTo(img, "opacity", { duration: 0.4, ease: "power2.out" }));
+      gsap.set(images, {
+        position: "absolute",
+        inset: 0,
+        opacity: 0,
+        pointerEvents: "none",
       });
+      if (images[0]) gsap.set(images[0], { opacity: 1 });
 
       // find image by key and show it, hide others
       const showImageByKey = (key) => {
         images.forEach((img) => {
-          // const setOpacity = imgSetters.get(img.dataset.key);
-          // setOpacity(img.dataset.key === key ? 1 : 0);
-          //  gsap.to(img, {
-          //   color: btn === hoveredBtn ? COLORS.brown : COLORS.muted,
-          //   duration: 0.2,
-          //   ease: "power2.out",
-          // });
+          gsap.to(img, {
+            opacity: img.dataset.key === key ? 1 : 0,
+            duration: 0.5,
+            ease: "power2.out",
+          });
         });
       };
 
@@ -52,7 +48,11 @@ export default function Model() {
 
       // reset to initial (all brown + first image)
       const resetAll = () => {
-        gsap.to(buttons, { color: COLORS.brown, duration: 0.2, ease: "power2.out" });
+        gsap.to(buttons, {
+          color: COLORS.brown,
+          duration: 0.2,
+          ease: "power2.out",
+        });
         if (images[0]) {
           images.forEach((img, i) => {
             const setOpacity = imgSetters.get(img.dataset.key);
@@ -87,28 +87,78 @@ export default function Model() {
   }, []);
 
   return (
-    <section ref={rootRef} className="nav-model grid grid-cols-2 h-dvh w-screen">
+    <section
+      ref={rootRef}
+      className="nav-model grid grid-cols-2 h-dvh w-screen"
+    >
       <div className="col-span-1 flex justify-center">
-        <div className="titles mt-16 flex flex-col">
+        <div className="titles mt-16 flex flex-col relative z-50">
           {/* Map buttons to images via data-key */}
-          <button className="nav-button title-btn" data-key="shop">SHOP</button>
-          <button className="nav-button title-btn" data-key="find">FIND IN STORES</button>
-          <button className="nav-button title-btn" data-key="about">ABOUT US</button>
-          <button className="nav-button title-btn" data-key="tasty">TASTY TALKS</button>
-          <button className="nav-button title-btn" data-key="programs">PROGRAMS</button>
-          <button className="nav-button title-btn" data-key="contacts">CONTACTS</button>
+          <button className="nav-button title-btn" data-key="shop">
+            SHOP
+          </button>
+          <button className="nav-button title-btn" data-key="find">
+            FIND IN STORES
+          </button>
+          <button className="nav-button title-btn" data-key="about">
+            ABOUT US
+          </button>
+          <button className="nav-button title-btn" data-key="tasty">
+            TASTY TALKS
+          </button>
+          <button className="nav-button title-btn" data-key="programs">
+            PROGRAMS
+          </button>
+          <button className="nav-button title-btn" data-key="contacts">
+            CONTACTS
+          </button>
         </div>
       </div>
 
       <div className="col-span-1 relative">
         {/* Make sure order matches: first one is initial */}
-        <img className="nav-image" data-key="model" src="/images/model.webp" alt="nav-model" />
-        <img className="nav-image" data-key="shop" src="/images/shop.png" alt="nav-shop" />
-        <img className="nav-image" data-key="find" src="/images/find.png" alt="nav-find" />
-        <img className="nav-image" data-key="about" src="/images/about.png" alt="nav-tasty" />
-        <img className="nav-image" data-key="tasty" src="/images/tasty.png" alt="nav-tasty" />
-        <img className="nav-image" data-key="programs" src="/images/programs.png" alt="nav-programs" />
-        <img className="nav-image" data-key="contacts" src="/images/contacts.png" alt="nav-contacts" />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="model"
+          src="/images/model.webp"
+          alt="nav-model"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="shop"
+          src="/images/shop.png"
+          alt="nav-shop"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="find"
+          src="/images/find.png"
+          alt="nav-find"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="about"
+          src="/images/about.png"
+          alt="nav-tasty"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="tasty"
+          src="/images/tasty.png"
+          alt="nav-tasty"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="programs"
+          src="/images/programs.png"
+          alt="nav-programs"
+        />
+        <img
+          className="nav-image w-full h-full object-cover"
+          data-key="contacts"
+          src="/images/contacts.png"
+          alt="nav-contacts"
+        />
       </div>
     </section>
   );
