@@ -12,6 +12,9 @@ export default function MessageSection() {
       type: "words,lines",
       linesClass:"paragraph-line"
     });
+    useGSAP(()=>{
+      
+    })
   });
   return (
     <section className="message-content">

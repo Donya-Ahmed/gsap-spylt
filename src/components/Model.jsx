@@ -88,7 +88,7 @@ export default function Model({ open }) {
   return (
     <section
       ref={rootRef}
-      className="bg-milk nav-model grid grid-cols-2 w-screen overflow-hidden absolute top-0 left-0 z-40"
+      className="bg-milk nav-model grid grid-cols-2 w-screen overflow-hidden fixed   left-0 z-40"
       style={{ height: "0dvh" }}                          
     >
       <div className="col-span-1 flex justify-center">
