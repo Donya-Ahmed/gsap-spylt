@@ -1,4 +1,5 @@
-import { AlignJustify, X } from "lucide-react";
+import AlignJustify from "lucide-react/dist/esm/icons/align-justify.js";
+import X from "lucide-react/dist/esm/icons/x.js";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
