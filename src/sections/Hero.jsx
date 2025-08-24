@@ -59,7 +59,7 @@ export default function Hero() {
         /> */}
         <video
           src="videos/hero-bg.mp4"
-          className=" w-scren h-full object-auto scale-100 md:scale-150 absolute bottom-0 left-1/2 -translate-x-1/2"
+          className=" w-full h-full object-cover scale-100 md:scale-150 absolute bottom-0 left-1/2 -translate-x-1/2"
           autoPlay
           muted
         ></video>
