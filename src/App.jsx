@@ -5,17 +5,32 @@ import Model from "./components/Model";
 import Navbar from "./components/Navbar";
 import MessageSection from "./sections/MessageSection";
 import FlavorSection from "./sections/FlavorSection";
+import { ScrollSmoother } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import NutritionSection from "./sections/NutritionSection";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 function App() {
+  useGSAP(() => {
+    ScrollSmoother.create({
+      smooth: 3,
+      effects: true,
+    });
+  });
   return (
     <>
       <main className="relative">
         <Navbar model={(open) => <Model open={open} />} />
-        <Hero />
-        <MessageSection/>
-        <FlavorSection/>
-        <div className="h-dvh bg-main-bg">hello</div>
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <Hero />
+            <MessageSection />
+            <FlavorSection />
+            <NutritionSection/>
+            <div className="h-dvh bg-main-bg">hello</div>
+          </div>
+        </div>
       </main>
     </>
   );

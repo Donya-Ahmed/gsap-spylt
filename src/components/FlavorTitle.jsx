@@ -17,7 +17,7 @@ export default function FlavorTitle() {
         trigger: ".flavor-section",
         start: "top 30%",
         toggleActions: "play none none reverse",
-        markers: true,
+        // markers: true,
       },
     });
     gsap.to(".flavor-text-scroll", {
