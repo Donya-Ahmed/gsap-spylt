@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 
 export default function FlavorSlider() {
   const scrollRef = React.useRef(null);
-  const isTablet = useMediaQuery({ query: "(max-width:768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width:1024px)" });
   useGSAP(() => {
     const scrollMount = scrollRef.current.scrollWidth - window.innerWidth;
     if (!isTablet) {

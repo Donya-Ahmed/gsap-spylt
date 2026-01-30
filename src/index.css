@@ -60,16 +60,16 @@ body::-webkit-scrollbar {
   .paragraph-line {
     @apply text-nowrap overflow-hidden;
   }
-   .nav-section{
-     .nav-button {
-        @apply md:mt-16 mt-10 text-dark-brown bg-milk-light uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-6 !m-0;
-      }
-   }
-   .nav-model{
-    .nav-button{
+  .nav-section {
+    .nav-button {
+      @apply md:mt-16 mt-10 text-dark-brown bg-milk-light uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-6 !m-0;
+    }
+  }
+  .nav-model {
+    .nav-button {
       @apply block text-dark-brown  uppercase font-bold  md:text-7xl lg:text-8xl  w-full;
     }
-   }
+  }
   .hero-container {
     @apply relative bg-milk w-screen h-dvh overflow-hidden;
 
@@ -168,12 +168,9 @@ body::-webkit-scrollbar {
   }
 
   .nutrition-section {
-    @apply min-h-dvh 2xl:h-[120dvh] overflow-hidden relative;
-
     .big-img {
-      @apply w-full absolute 2xl:h-full md:h-2/3 h-1/2 left-0 bottom-0 object-bottom 2xl:object-contain object-cover;
+      @apply w-full absolute xl:h-full md:h-2/3 h-1/2 left-0 bottom-0 object-bottom 2xl:object-contain object-cover;
     }
-
     .nutrition-title {
       @apply 2xl:max-w-4xl xl:max-w-2xl md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-[#513022];
     }
@@ -276,11 +273,18 @@ body::-webkit-scrollbar {
   }
 }
 
-.nutrition-section {
+ .nutrition-section {
   background-color: #faeade00;
   background-image: radial-gradient(circle, #f3ece2, #dcccb0);
+  width: auto;
+  height: 120vh;
+  position: relative;
 }
-
+/* .big-img {
+  width: 100%;
+  position: absolute;
+  inset: auto 0% 0%;
+} */
 .spin-circle {
   animation: spin 20s linear infinite;
 }
